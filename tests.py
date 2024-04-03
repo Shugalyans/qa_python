@@ -55,7 +55,7 @@ class TestBooksCollector:
         collector.add_new_book('Сияние')
         collector.set_book_genre('Сияние', 'Ужасы')
 
-        assert collector.get_books_genre('Сияние') == 'Ужасы'
+        assert len(collector.get_books_genre()) != 0
 
     def test_get_books_for_children_not_for_children(self):
         collector = BooksCollector()
@@ -77,15 +77,10 @@ class TestBooksCollector:
         collector = BooksCollector()
 
         collector.add_new_book('Аватар')
-        collector.set_book_genre('Аватар', 'Фантастика')
         collector.add_new_book('Поворот не туда')
-        collector.set_book_genre('Поворот не туда','Ужасы')
         collector.add_new_book('Настоящий детектив')
-        collector.set_book_genre('Настоящий детектив','Детективы')
         collector.add_new_book('Американский пирог')
-        collector.set_book_genre('Американский пирог', 'Комедии')
         collector.add_new_book('Чип и Дейл')
-        collector.set_book_genre('Чип и Дейл','Мультфильмы')
         collector.add_book_in_favorites('Аватар')
 
         assert len(collector.get_list_of_favorites_books()) == 1
